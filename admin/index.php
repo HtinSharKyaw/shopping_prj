@@ -62,7 +62,8 @@ if($_SESSION['role']!=1){
                       <th style="width: 10px">id</th>
                       <th>Name</th>
                       <th>Description</th>
-                      <th>Quantity</th>
+                      <th>Category</th>
+                      <th>In Stock</th>
                       <th>price</th>
                       <th style="width: 40px">Actions</th>
                     </tr>
@@ -77,6 +78,14 @@ if($_SESSION['role']!=1){
                       <td><?php echo $i?></td> 
                       <td><?php echo escape($value['name'])?></td>
                       <td><?php echo substr(escape($value['description']),0,50)?></td><!--This is substring function for too much content-->
+                      <td><?php 
+                        $nameStmt = $connection->prepare("SELECT * FROM categories WHERE id = ".$value['category_id']);
+                        $nameStmt->execute();
+                        $nameResult = $nameStmt->fetch(PDO::FETCH_ASSOC);
+                        if($nameResult){
+                          echo escape($nameResult['name']);
+                        }
+                      ?></td>
                       <td><?php echo escape($value['quantity'])?></td>
                       <td><?php echo escape($value['price'])?></td>
                       <td>
