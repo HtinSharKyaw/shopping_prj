@@ -54,7 +54,7 @@ if($_SESSION['role']!=1){
               <!-- /.card-header -->
               <div class="card-body">
                 <div class="">
-                    <a href="add.php" type="button" class="btn btn-success">New Product</a>
+                    <a href="product_add.php" type="button" class="btn btn-success">New Product</a>
                 </div><br>
                 <table class="table table-bordered">
                   <thead>
@@ -91,10 +91,10 @@ if($_SESSION['role']!=1){
                       <td>
                         <div class="btn-group">
                           <div class="container">
-                            <a href="edit.php?id=<?php echo $value['id']?>" type="button" class="btn btn-primary" >edit</a>
+                            <a href="product_edit.php?id=<?php echo $value['id']?>" type="button" class="btn btn-primary" >edit</a>
                           </div>
                           <div class="container">
-                            <a href="delete.php?id=<?php echo $value['id']?>" type="button" class="btn btn-warning" onclick="return confirm('Are you sure you want to delete')">Delete</a> 
+                            <a href="product_delete.php?id=<?php echo $value['id']?>" type="button" class="btn btn-warning" onclick="return confirm('Are you sure you want to delete')">Delete</a> 
                           </div>
                         </div>
                       </td>
