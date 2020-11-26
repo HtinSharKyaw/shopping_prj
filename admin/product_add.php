@@ -34,12 +34,12 @@ if($_POST){
             $imageError = "image can not be null";
         }  
     }elseif(is_numeric($_POST['price'])!=1 || is_numeric($_POST['quantity']) != 1){
-        $priceError =  is_int($_POST['price'])? '':'Please Enter Valid Price';
-        $quantityError = is_int($_POST['quantity'])? '':'Please Enter Valid Quantity';
+        $priceError =  is_numeric($_POST['price'])? '':'Please Enter Valid Price';
+        $quantityError = is_numeric($_POST['quantity'])? '':'Please Enter Valid Quantity';
     }else{
         unset($_SESSION['_token']);//That is for token deleting token and refreshing the token
 
-        $target_dir = "../dist/img/";//creating a target dir
+        $target_dir = "dist/img/";//creating a target dir
         $target_file = $target_dir.basename($_FILES["image"]["name"]);//get the path of the file to be upload
         $image_type = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));//hold the file extension in lower case
 
@@ -71,10 +71,7 @@ if($_POST){
                      window.location.href = 'index.php';
                  </script>";
              }           
-        }
-
-            
-       
+        }  
     }
 }
 ?>

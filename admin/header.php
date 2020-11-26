@@ -18,6 +18,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+
   <?php echo "<script>import swal from 'sweetalert';</script>"?>
 </head>
 
@@ -117,6 +120,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              <a href="order_view.php" class="nav-link">
+                <i class="nav-icon fa fa-tasks"></i>
+                <p>
+                  Orders
+                </p>
+              </a>
+            </li>
           </ul>
         </nav>
         <!-- /.sidebar-menu -->
@@ -131,7 +142,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1 class="m-0 text-dark">Blog</h1>
+              <h1 class="m-0 text-dark" style="font-family: 'Open Sans', sans-serif;">Shopping App</h1>
             </div><!-- /.col -->
             <div class="col-sm-6">
 
