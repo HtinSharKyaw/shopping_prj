@@ -1,27 +1,27 @@
 <?php 
-session_start();
-require '../config/config.php';
-require '../config/common.php';
+  session_start();
+  require '../config/config.php';
+  require '../config/common.php';
 
-if(empty($_SESSION['user_id']) && empty($_SESSION['logged_in'])){
-  header('Location:login.php');
-}
+  if(empty($_SESSION['user_id']) && empty($_SESSION['logged_in'])){
+    header('Location:login.php');
+  }
 
-if($_SESSION['role']!=1){
-  header('Location:login.php');
-}
-//this code is for sale order result
-$stmt = $connection->prepare("SELECT * FROM sale_order_detail where id=:id");
-$stmt->execute(
-  array(':id'=>$_GET['id'])
-);
-$result = $stmt->fetch(PDO::FETCH_ASSOC);
+  if($_SESSION['role']!=1){
+    header('Location:login.php');
+  }
+  //this code is for sale order result
+  $stmt = $connection->prepare("SELECT * FROM sale_order_detail where id=:id");
+  $stmt->execute(
+    array(':id'=>$_GET['id'])
+  );
+  $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-$stmtProduct = $connection->prepare("SELECT * FROM products where id IN (SELECT product_id from sale_orders where id=:id)");
-$stmtProduct->execute(
-  array(':id'=>$_GET['id'])
-);
-$productResult = $stmtProduct->fetch(PDO::FETCH_ASSOC);
+  $stmtProduct = $connection->prepare("SELECT * FROM products where id IN (SELECT product_id from sale_orders where id=:id)");
+  $stmtProduct->execute(
+    array(':id'=>$_GET['id'])
+  );
+  $productResult = $stmtProduct->fetch(PDO::FETCH_ASSOC);
 
 ?>
 <?php include ('header.php');?>
@@ -46,5 +46,4 @@ $productResult = $stmtProduct->fetch(PDO::FETCH_ASSOC);
       </div>
     </div>
   </div>
-
-  <?php include('footer.html')?>
+<?php include('footer.html')?>
